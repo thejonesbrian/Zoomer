@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using Zoomer.Models;
@@ -10,26 +11,26 @@ namespace Zoomer.Controllers
 {
     public class CarsController : Controller
     {
-        // GET: Cars
-        public ActionResult Home()
+        private ApplicationDbContext _context;
+        public CarsController()
         {
-            var car = new Car() { Make = "VW", Model = "Golf" };
-            var customers = new List<Customer>
-            {
-                new Customer {Name="Customer A"},
-                new Customer {Name="Customer B"}
-            };
-            var viewModel = new RandomCarViewModel() 
-            { 
-                Car = car,
-                Customers = customers
-            };
-
-            return View(viewModel);
+            _context = new ApplicationDbContext();
         }
-        public ActionResult Edit(int id)
+        protected override void Dispose(bool disposing)
         {
-            return Content("id=" + id);
-        } 
+            _context.Dispose();
+        }
+        public ViewResult Index()
+        {
+            var cars = _context.Cars.Include(c => c.BodyStyle).ToList();
+            return View(cars);
+        }
+        public ActionResult Details(int id)
+        {
+            var car = _context.Cars.Include(c => c.BodyStyle).SingleOrDefault(c => c.Id == id);
+            if (car == null)
+                return HttpNotFound();
+            return View(car);
+        }
     }
 }

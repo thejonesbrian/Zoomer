@@ -207,8 +207,17 @@
     <Compile Include="Migrations\202106161011098_AddBirthdateToCustomer.Designer.cs">
       <DependentUpon>202106161011098_AddBirthdateToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106162113345_AddCarModelAndBodyStyle.cs" />
+    <Compile Include="Migrations\202106162113345_AddCarModelAndBodyStyle.Designer.cs">
+      <DependentUpon>202106162113345_AddCarModelAndBodyStyle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106162120210_AddBodyStylesInDb.cs" />
+    <Compile Include="Migrations\202106162120210_AddBodyStylesInDb.Designer.cs">
+      <DependentUpon>202106162120210_AddBodyStylesInDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BodyStyle.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -279,6 +288,8 @@
     <Content Include="Views\Cars\Home.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Cars\Index.cshtml" />
+    <Content Include="Views\Cars\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -320,6 +331,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106161011098_AddBirthdateToCustomer.resx">
       <DependentUpon>202106161011098_AddBirthdateToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106162113345_AddCarModelAndBodyStyle.resx">
+      <DependentUpon>202106162113345_AddCarModelAndBodyStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106162120210_AddBodyStylesInDb.resx">
+      <DependentUpon>202106162120210_AddBodyStylesInDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

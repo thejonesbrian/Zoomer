@@ -1,0 +1,13 @@
+﻿@model Zoomer.Models.Car
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Make - @Model.Model</h2>
+<ul>
+    <li>Body Style: @Model.BodyStyle.BodyType</li>
+    <li>Year of Car: @Model.YearOfMake</li>
+    <li>Date Added: @Model.DateAdded.ToString()</li>
+</ul>
+
