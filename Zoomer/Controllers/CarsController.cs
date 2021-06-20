@@ -25,6 +25,12 @@ namespace Zoomer.Controllers
             var cars = _context.Cars.Include(c => c.BodyStyle).ToList();
             return View(cars);
         }
+        public ActionResult New()
+        {
+            var bodyStyles = _context.BodyStyles.ToList();
+
+
+        }
         public ActionResult Details(int id)
         {
             var car = _context.Cars.Include(c => c.BodyStyle).SingleOrDefault(c => c.Id == id);
