@@ -14,10 +14,15 @@ namespace Zoomer.Models
         [Required]
         public string Model { get; set; }
         [Required]
+        [Display(Name = "Year of Make")]
         public string YearOfMake { get; set; }
         [Required]
+        [Display(Name ="Date Added")]
         public DateTime? DateAdded { get; set; }
-        [Required]
+        
         public BodyStyle BodyStyle { get; set; }
+        [Required]
+        [Display(Name = "Car Body Type")]
+        public byte BodyStyleId { get; set; }
     }
 }

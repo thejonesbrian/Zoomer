@@ -1,0 +1,33 @@
+﻿@model Zoomer.ViewModels.NewCarViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.PageTitle</h2>
+@using (Html.BeginForm("Save", "Cars"))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.Make)
+        @Html.TextBoxFor(c => c.Car.Make, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.Model)
+        @Html.TextBoxFor(c => c.Car.Model, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.YearOfMake)
+        @Html.TextBoxFor(c => c.Car.YearOfMake, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.DateAdded)
+        @Html.TextBoxFor(c => c.Car.DateAdded, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Car.BodyStyleId)
+        @Html.DropDownListFor(c => c.Car.BodyStyleId, new SelectList(Model.BodyStyles, "Id", "BodyType"), "Select Body Type", new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(c => c.Car.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

@@ -7,13 +7,13 @@ namespace Zoomer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AddAnnotationsToCustomerName : IMigrationMetadata
+    public sealed partial class initial2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddAnnotationsToCustomerName));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial2));
         
         string IMigrationMetadata.Id
         {
-            get { return "202106151000519_AddAnnotationsToCustomerName"; }
+            get { return "202106211014122_initial2"; }
         }
         
         string IMigrationMetadata.Source

@@ -29,7 +29,30 @@ namespace Zoomer.Controllers
         {
             var bodyStyles = _context.BodyStyles.ToList();
 
+            var viewModel = new NewCarViewModel
+            {
+                BodyStyles = bodyStyles
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult Save(Car car)
+        {
+            if(car.Id == 0)
+                _context.Cars.Add(car);
+            else
+            {
+                var carInDb = _context.Cars.Single(c => c.Id == car.Id);
+                carInDb.Make = car.Make;
+                carInDb.Model = car.Model;
+                carInDb.DateAdded = car.DateAdded;
+                carInDb.YearOfMake = car.YearOfMake;
+                carInDb.BodyStyleId = car.BodyStyleId;
+               
+            }
+            _context.SaveChanges();
 
+            return RedirectToAction("Index", "Cars");
         }
         public ActionResult Details(int id)
         {
@@ -37,6 +60,18 @@ namespace Zoomer.Controllers
             if (car == null)
                 return HttpNotFound();
             return View(car);
+        }
+        public ActionResult Edit(int id)
+        {
+            var car = _context.Cars.SingleOrDefault(c => c.Id == id);
+            if (car == null)
+                return HttpNotFound();
+            var viewModel = new NewCarViewModel
+            {
+                Car = car,
+                BodyStyles = _context.BodyStyles.ToList()
+            };
+            return View("New", viewModel);
         }
     }
 }
