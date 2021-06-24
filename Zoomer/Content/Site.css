@@ -22,4 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
-
+span.field-validation-error {
+    color: #ff6666;
+    text-decoration: underline;
+}
+.input-validation-error{
+    border: 2px solid #ff6666;
+}
